@@ -2,12 +2,24 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family:'Sans-Serif', sans-serif, serif;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 body {
     background: #018281;
     overflow: hidden;
+}
+
+.navbar {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: fixed;
+    bottom: 0;
+    z-index: 999;
 }
 
 .navbar__menu {
@@ -20,7 +32,7 @@ body {
 .navbar__container {
     position: absolute;
     z-index: 999;
-    background: #131313;
+    background: #c3c3c3;
     display: flex;
     justify-content: space-between;
     bottom: 0;
