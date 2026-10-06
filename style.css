@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'MS W98 UI', sans-serif;
 }
 
 body {
@@ -14,31 +14,41 @@ body {
     height: 80px;
     width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 1.2rem;
     position: fixed;
     bottom: 0;
     z-index: 999;
-}
-
-.navbar__menu {
-    display: flex;
-    align-items: center;
-    text-align: center;
+    background: #c3c3c3;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 50px;
+    text-align: match-parent;
     list-style: none;
 }
 
-.navbar__container {
-    position: absolute;
-    z-index: 999;
-    background: #c3c3c3;
-    display: flex;
-    justify-content: space-between;
-    bottom: 0;
-    height: 80px;
-    z-index: 1;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 50px;
+.nav__links {
+    list-style: none;
+    text-align: center;
+}
+
+.nav__links a {
+    color: #000;
+    text-decoration: none;
+}
+
+.nav__links li {
+    display: inline-block;
+    padding: 0px 20px;
+    color: #000;
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: 'MS W98 UI';
+    src: url(fonts/MSW98UI-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'MS W98 UI Bold';
+    src: url(fonts/MSW98UI-Bold.ttf);
 }
