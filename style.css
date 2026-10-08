@@ -42,8 +42,14 @@ body {
     text-decoration: none;
 }
 
+.windowtemplate {
+    display: none;
+}
+
 .window {
     position: absolute;
+    left: 20%;
+    top: 20%;
     z-index: 90;
     display: flex;
     flex-direction: column;
