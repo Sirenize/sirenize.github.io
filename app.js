@@ -1,55 +1,79 @@
-//Make the DIV element draggable:
-// stolen code from https://www.w3schools.com/howto/howto_js_draggable.asp
-// i hate this so much
-dragElement(document.getElementById("window"));
+// start button code
+document.getElementById("startbutton").addEventListener('click', function() {
+  window.location.reload();
+})
 
-const screenWidth = document.documentElement.clientWidth;
-const screenHeight = document.documentElement.clientHeight;
+const windows = document.querySelectorAll(".window");
 
-function dragElement(elmnt) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  if (document.getElementById(elmnt.id + "header")) {
-    /* if present, the header is where you move the DIV from:*/
-    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-  } else {
-    /* otherwise, move the DIV from anywhere inside the DIV:*/
-    elmnt.onmousedown = dragMouseDown;
-  }
+windows.forEach(win => {
 
-  function dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // get the mouse cursor position at startup:
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
-    document.onmousemove = elementDrag;
-  }
+  win.addEventListener('mousedown', () => {
+    bringToFront(win)
+  })
 
-  function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    // set the element's new position:
-    if (bounds(pos1, pos2)) {
-      elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-      elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-    }
-  }
+  const header = win.querySelector(".windowheader");
+  const corner = win.querySelector(".corner")
 
-  function bounds(pos1, pos2) {
-    var rect = elmnt.getBoundingClientRect();
-    return rect.left - pos1 > -1 && rect.right - pos1 < screenWidth && rect.top - pos2 > -1 && rect.bottom - pos2 < screenHeight
-  }
+  header.addEventListener("mousedown", (event) => {
+    win.classList.add("is-dragging");
 
-  function closeDragElement() {
-    /* stop moving when mouse button is released:*/
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
+    const startLeft = win.offsetLeft;
+    const startTop = win.offsetTop;
+    const startX = event.pageX;
+    const startY = event.pageY;
+
+    const drag = (event) => {
+      event.preventDefault();
+      const newLeft = startLeft + (event.pageX - startX);
+      const newTop = startTop + (event.pageY - startY);
+
+      const maxLeft = window.innerWidth - win.offsetWidth;
+      const maxTop = window.innerHeight - win.offsetHeight;
+
+      win.style.left = Math.min(Math.max(newLeft, 0), maxLeft) + "px";
+      win.style.top = Math.min(Math.max(newTop, 0), maxTop) + "px";
+    };
+
+    const mouseup = () => {
+      win.classList.remove("is-dragging");
+
+      document.removeEventListener("mousemove", drag);
+      document.removeEventListener("mouseup", mouseup);
+    };
+
+    document.addEventListener("mousemove", drag);
+    document.addEventListener("mouseup", mouseup);
+  });
+
+  corner.addEventListener("mousedown", (event) => {
+
+    const startWidth = win.clientWidth;
+    const startHeight = win.clientHeight;
+    const startX = event.pageX;
+    const startY = event.pageY;
+
+    const drag = (event) => {
+      event.preventDefault();
+      win.style.width = startWidth + (event.pageX - startX) + "px";
+      win.style.height = startHeight + (event.pageY - startY) + "px";
+    };
+
+    const mouseup = () => {
+      document.removeEventListener("mousemove", drag);
+      document.removeEventListener("mouseup", mouseup);
+    };
+
+    document.addEventListener("mousemove", drag);
+    document.addEventListener("mouseup", mouseup);
+  });
+
+});
+
+function bringToFront(win) {
+  const all = [...document.querySelectorAll(".window")]
+    .filter(w => w !== win)
+    .sort((a, b) => (+a.style.zIndex || 0) - (+b.style.zIndex || 0));
+
+  all.push(win); // clicked window goes last, so it gets the highest value
+  all.forEach((w, i) => (w.style.zIndex = i + 1));
 }
