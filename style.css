@@ -48,10 +48,13 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    resize: both;
     background-color: #c3c3c3;
     border: 2px solid #818181;
     text-align: center;
-    resize: both;
+    width: 400px;
+    height: 300px;
+    max-width: 100vw;
     min-width: 100px;
     min-height: 100px;
 }
@@ -59,23 +62,20 @@ body {
 .windowheader {
     padding: 10px;
     cursor: move;
-    z-index: 91;
+    flex: 0 0 auto;
     background-color: #010081;
     color: #fff;
 }
 
 .windowbody {
-    padding: 0px;
-    margin: 0px;
-    z-index: 92;
+    flex: 1 1 auto;
+    min-height: 0;
+    min-width: 0;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
     background-color: #c3c3c3;
     color: #000;
-    overflow-y: auto;
-}
-
-.windowbody ul {
-    text-decoration: none;
-    list-style: none;
 }
 
 .corner {
