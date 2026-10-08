@@ -5,6 +5,8 @@
 - add maximize button (windowed fullscreen essentially)
 - add individual program buttons and a button on the window to close it
 - redo the start menu (open programs appear at the bottom)
+- add mobile support (resize hitbox is bigger, allow dragging window)
+- potentially change the font size based on resize? or add option to change font size
 
 # for the portfolio
 - add more english papers
