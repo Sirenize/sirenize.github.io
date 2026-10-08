@@ -59,11 +59,21 @@ body {
     min-height: 100px;
 }
 
-.windowheader {
-    padding: 10px;
+.header {
+    line-height: 6pt;
+    height: 20px;
+    padding: 5px 5px 5px 5px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
     cursor: move;
-    flex: 0 0 auto;
     background-color: #010081;
+    background-image: linear-gradient(
+        to right,
+        #010081,
+        #67bed9
+    );
     color: #fff;
 }
 
@@ -82,9 +92,39 @@ body {
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 24px;
-    height: 24px;
+    width: 40px;
+    height: 40px;
     cursor: se-resize;
+}
+
+#close {
+    background-image: url('images/close.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+#maximize {
+    background-image: url('images/maximize.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+#minimize {
+    background-image: url('images/minimize.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    border: none;
+    cursor: pointer;
 }
 
 #startbutton {

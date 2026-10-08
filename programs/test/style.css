@@ -1,9 +1,24 @@
 * {
     box-sizing: border-box;
-    margin: 10;
-    padding: 10;
     font-family: 'MS W98 UI', sans-serif;
     line-height: 1.4;
+}
+
+.c4 {
+    margin: 5px;
+}
+.c8 {
+    background-color: #6d9eeb;
+}
+.c2 {
+    text-indent: 36pt;
+}
+
+.c6 {
+    background-color: #e06666;
+}
+.c1 {
+    background-color: #93c47d;
 }
 
 @font-face {

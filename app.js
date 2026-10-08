@@ -1,79 +1,86 @@
-// start button code
+// start button
 document.getElementById("startbutton").addEventListener('click', function() {
   window.location.reload();
 })
 
-const windows = document.querySelectorAll(".window");
+// windows
+const panes = document.querySelectorAll('.window')
 
-windows.forEach(win => {
+panes.forEach((pane) => {
+  const header = pane.querySelector('.header')
+  const corner = pane.querySelector('.corner')
+  const buttons = pane.querySelector('.buttons')
+  const navbar = pane.querySelector('.navbar')
 
-  win.addEventListener('mousedown', () => {
-    bringToFront(win)
+  buttons.addEventListener('click', function (event) {
+    if (event.target.id == "maximize") {
+      pane.style.width = window.innerWidth + "px";
+      pane.style.height = window.innerHeight - 30 + "px";
+    }})
+
+  pane.addEventListener('mousedown', () => {
+    bringToFront(pane)
   })
 
-  const header = win.querySelector(".windowheader");
-  const corner = win.querySelector(".corner")
+  header.addEventListener('mousedown', (event) => {
+    pane.classList.add('is-dragging')
 
-  header.addEventListener("mousedown", (event) => {
-    win.classList.add("is-dragging");
+    let l = pane.offsetLeft
+    let t = pane.offsetTop
 
-    const startLeft = win.offsetLeft;
-    const startTop = win.offsetTop;
-    const startX = event.pageX;
-    const startY = event.pageY;
+    let startX = event.pageX
+    let startY = event.pageY
 
     const drag = (event) => {
-      event.preventDefault();
-      const newLeft = startLeft + (event.pageX - startX);
-      const newTop = startTop + (event.pageY - startY);
+      event.preventDefault()
+      
+      const maxLeft = window.innerWidth - pane.offsetWidth;
+      const maxTop = window.innerHeight - pane.offsetHeight;
 
-      const maxLeft = window.innerWidth - win.offsetWidth;
-      const maxTop = window.innerHeight - win.offsetHeight;
-
-      win.style.left = Math.min(Math.max(newLeft, 0), maxLeft) + "px";
-      win.style.top = Math.min(Math.max(newTop, 0), maxTop) + "px";
-    };
+      pane.style.left = Math.min(Math.max(l + (event.pageX - startX), 0), maxLeft) + "px";
+      pane.style.top = Math.min(Math.max(t + (event.pageY - startY), 0), maxTop) + "px";
+    }
 
     const mouseup = () => {
-      win.classList.remove("is-dragging");
+      pane.classList.remove('is-dragging')
 
-      document.removeEventListener("mousemove", drag);
-      document.removeEventListener("mouseup", mouseup);
-    };
+      document.removeEventListener('mousemove', drag)
+      document.removeEventListener('mouseup', mouseup)
+    }
 
-    document.addEventListener("mousemove", drag);
-    document.addEventListener("mouseup", mouseup);
-  });
+    document.addEventListener('mousemove', drag)
+    document.addEventListener('mouseup', mouseup)
+  })
 
-  corner.addEventListener("mousedown", (event) => {
+  corner.addEventListener('mousedown', (event) => {
+    let w = pane.clientWidth
+    let h = pane.clientHeight
 
-    const startWidth = win.clientWidth;
-    const startHeight = win.clientHeight;
-    const startX = event.pageX;
-    const startY = event.pageY;
+    let startX = event.pageX
+    let startY = event.pageY
 
     const drag = (event) => {
-      event.preventDefault();
-      win.style.width = startWidth + (event.pageX - startX) + "px";
-      win.style.height = startHeight + (event.pageY - startY) + "px";
-    };
+      event.preventDefault()
+
+      pane.style.width = w + (event.pageX - startX) + 'px'
+      pane.style.height = h + (event.pageY - startY) + 'px'
+    }
 
     const mouseup = () => {
-      document.removeEventListener("mousemove", drag);
-      document.removeEventListener("mouseup", mouseup);
-    };
+      document.removeEventListener('mousemove', drag)
+      document.removeEventListener('mouseup', mouseup)
+    }
 
-    document.addEventListener("mousemove", drag);
-    document.addEventListener("mouseup", mouseup);
-  });
+    document.addEventListener('mousemove', drag)
+    document.addEventListener('mouseup', mouseup)
+  })
+})
 
-});
-
-function bringToFront(win) {
+function bringToFront(pane) {
   const all = [...document.querySelectorAll(".window")]
-    .filter(w => w !== win)
+    .filter(p => p !== pane)
     .sort((a, b) => (+a.style.zIndex || 0) - (+b.style.zIndex || 0));
 
-  all.push(win); // clicked window goes last, so it gets the highest value
-  all.forEach((w, i) => (w.style.zIndex = i + 1));
+  all.push(pane);
+  all.forEach((p, i) => (p.style.zIndex = i + 1));
 }
