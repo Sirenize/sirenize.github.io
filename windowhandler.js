@@ -42,10 +42,10 @@
     header.addEventListener('pointerdown', (event) => {
     pane.classList.add('is-dragging');
 
-    const l = pane.offsetLeft;
-    const t = pane.offsetTop;
-    const startX = event.pageX;
-    const startY = event.pageY;
+    let l = pane.offsetLeft;
+    let t = pane.offsetTop;
+    let startX = event.pageX;
+    let startY = event.pageY;
 
     const drag = (event) => {
         event.preventDefault();
@@ -57,7 +57,10 @@
             pane.style.width = 500 + "px";
             pane.style.height = 300 + "px";
 
-            pane.style.left = event.pageX + "px";
+            l = event.pageX - 250;
+            t = 0;
+            startX = event.pageX;
+            startY = event.pageY;
         }
 
         const maxLeft = window.innerWidth - pane.offsetWidth;

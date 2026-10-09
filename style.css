@@ -67,6 +67,7 @@ body {
 
 .header {
     line-height: 6pt;
+    touch-action: none;
     height: 20px;
     padding: 5px 5px 5px 5px;
     display: flex;
@@ -101,6 +102,7 @@ body {
     width: 40px;
     height: 40px;
     cursor: se-resize;
+    touch-action: none;
 }
 
 #close {
