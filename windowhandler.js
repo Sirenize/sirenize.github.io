@@ -17,6 +17,10 @@ document.getElementById("openECLIPSE").addEventListener('click', function () {
 openWindow("./programs/eclipsed/index.html", "Eclipsed - Poem Assignment");
 });
 
+document.getElementById("openPOEMBOOK").addEventListener('click', function () {
+openWindow("./programs/poembook/index.html", "Poem Book");
+});
+
 // end of programs
 
 function openWindow(src, windowName) {
