@@ -2,15 +2,20 @@
 
 
 # for the website
-- add maximize button (windowed fullscreen essentially)
-- add individual program buttons and a button on the window to close it
+#- add maximize button (windowed fullscreen essentially)
+#- add individual program buttons and a button on the window to close it
 - redo the start menu (open programs appear at the bottom)
-- add mobile support (resize hitbox is bigger, allow dragging window)
+#- add mobile support (resize hitbox is bigger, allow dragging window)
 - potentially change the font size based on resize? or add option to change font size
 - add a recycle bin with old / unfinished essays
-- add authors notes
+#- add authors notes
+- add icon to beginning of nav buttons
 
 # for the portfolio
 - add more english papers
 #- comments?
 - add an about section, somewhere
+
+# authors notes left to do
+- CAE
+- eclipsed

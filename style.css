@@ -25,24 +25,22 @@ body {
     list-style: none;
 }
 
-.nav__links {
+.nav__buttons {
+    padding: 10px;
     list-style: none;
     text-align: left;
 }
 
-.nav__links a {
-    color: #000;
-    text-decoration: none;
+.nav__buttons button {
+    height: 90%;
+    align-items: center;
+    text-align: center;
+    background-color: #c3c3c3;
+    border-color: #818181;
+    padding: 2px;
 }
 
-.nav__links li {
-    display: inline-block;
-    padding: 0px 10px;
-    color: #000;
-    text-decoration: none;
-}
-
-.windowtemplate {
+.windowtemplate, .navbuttontemplate {
     display: none;
 }
 
@@ -137,6 +135,9 @@ body {
 
 #startbutton {
     height: 90%;
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
     align-items: center;
     text-align: center;
     background-color: #c3c3c3;
@@ -148,6 +149,62 @@ body {
     margin: 0px 0px 0px 10px;
     border: 1px solid #818181;
     height: 80%;
+}
+
+.desktop {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 80px;
+    grid-template-rows: repeat(auto-fill, 90px);
+    align-content: start;
+    padding: 12px;
+    height: calc(100vh - 30px);
+}
+
+.program {
+    display: flex;
+    flex-direction: column;
+    width: 80px;
+    white-space: normal;
+    overflow-wrap: break-word;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    font-size: 10pt;
+    gap: 2px;
+}
+
+#openRB {
+    background: #018281;
+    background-image: url('images/recycle_bin_empty_cool-3.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 48px;
+    height: 48px;
+    border: none;
+    cursor: pointer;
+}
+
+#openCAE {
+    background: #018281;
+    background-image: url('images/document-0.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 48px;
+    height: 48px;
+    border: none;
+    cursor: pointer;
+}
+
+#openECLIPSE {
+    background: #018281;
+    background-image: url('images/document-0.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 48px;
+    height: 48px;
+    border: none;
+    cursor: pointer;
 }
 
 @font-face {
