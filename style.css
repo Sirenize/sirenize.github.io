@@ -229,6 +229,39 @@ body {
     cursor: pointer;
 }
 
+#openRHETORICAL {
+    background: #018281;
+    background-image: url('images/document-0.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 48px;
+    height: 48px;
+    border: none;
+    cursor: pointer;
+}
+
+#openIKWYTOM {
+    background: #018281;
+    background-image: url('images/document-0.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 48px;
+    height: 48px;
+    border: none;
+    cursor: pointer;
+}
+
+#openHUMOR {
+    background: #018281;
+    background-image: url('images/document-0.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 48px;
+    height: 48px;
+    border: none;
+    cursor: pointer;
+}
+
 @font-face {
     font-family: 'MS W98 UI';
     src: url(./fonts/MSW98UI-Regular.ttf);

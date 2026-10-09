@@ -21,6 +21,18 @@ document.getElementById("openPOEMBOOK").addEventListener('click', function () {
 openWindow("./programs/poembook/index.html", "Poem Book");
 });
 
+document.getElementById("openRHETORICAL").addEventListener('click', function () {
+openWindow("./programs/rhetoricalsituation/index.html", "Rhetorical Situation Writing");
+});
+
+document.getElementById("openIKWYTOM").addEventListener('click', function () {
+openWindow("./programs/ikwytom/index.html", "I Know What You Think of Me Writing");
+});
+
+document.getElementById("openHUMOR").addEventListener('click', function () {
+openWindow("./programs/humor/index.html", "Humor Writing");
+});
+
 // end of programs
 
 function openWindow(src, windowName) {
