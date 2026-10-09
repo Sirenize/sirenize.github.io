@@ -5,6 +5,10 @@ const windowtemplate = document.querySelector('.window').cloneNode(true);
 
 // programs
 
+document.getElementById("openWELCOME").addEventListener('click', function () {
+openWindow("./programs/welcome/index.html", "welcome.txt");
+});
+
 document.getElementById("openCAE").addEventListener('click', function () {
 openWindow("./programs/collegeapp/index.html", "College App Essay");
 });
@@ -129,3 +133,5 @@ const all = [...document.querySelectorAll(".window")]
 all.push(pane);
 all.forEach((p, i) => (p.style.zIndex = i + 1));
 }
+
+openWindow("./programs/welcome/index.html", "welcome.txt");

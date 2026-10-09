@@ -1,7 +1,8 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
     font-family: 'MS W98 UI', sans-serif;
-    line-height: 1.4;
 }
 
 ol {
@@ -14,72 +15,51 @@ table th {
     padding: 0
 }
 
-.c1 {
-    color: #000000;
-    font-weight: 400;
-    text-decoration: none;
-    vertical-align: baseline;
-    font-size: 12pt;
-    font-style: normal
-}
-
-.c6 {
-    color: #000000;
-    font-weight: 400;
-    text-decoration: none;
-    vertical-align: baseline;
-    font-size: 11pt;
-    font-style: normal
-}
-
 .c0 {
-    padding-top: 0pt;
-    padding-bottom: 0pt;
-    line-height: 2.0;
-    orphans: 2;
-    widows: 2;
-    text-align: center
-}
-
-.c9 {
-    padding-top: 0pt;
-    padding-bottom: 0pt;
-    line-height: 2.0;
-    orphans: 2;
-    widows: 2;
-    text-align: left
-}
-
-.c7 {
+    margin-left: 54pt;
     padding-top: 0pt;
     padding-bottom: 0pt;
     line-height: 1.15;
     orphans: 2;
     widows: 2;
-    text-align: right
-}
-
-.c3 {
-    padding-top: 0pt;
-    padding-bottom: 0pt;
-    line-height: 1.0;
-    text-align: left
-}
-
-.c4 {
-    font-size: 12pt;
-    font-weight: 400;
-}
-
-.c8 {
-    background-color: #ffffff;
-    max-width: 468pt;
-    padding: 72pt 72pt 72pt 72pt
+    text-align: center;
+    margin-right: 54pt
 }
 
 .c5 {
-    border: 1px solid black;
-    margin: 5px
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none;
+    vertical-align: baseline;
+    font-size: 26pt;
+    
+    font-style: normal
+}
+
+.c4 {
+    padding-top: 0pt;
+    padding-bottom: 3pt;
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: center
+}
+
+.c1 {
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none;
+    vertical-align: baseline;
+    font-size: 11pt;
+    
+    font-style: normal
+}
+
+.c3 {
+    background-color: #ffffff;
+    max-width: 468pt;
+    padding: 72pt 72pt 72pt 72pt
 }
 
 .c2 {
@@ -91,11 +71,12 @@ table th {
     color: #000000;
     font-size: 26pt;
     padding-bottom: 3pt;
+    
     line-height: 1.15;
     page-break-after: avoid;
     orphans: 2;
     widows: 2;
-    text-align: left
+    text-align: center
 }
 
 .subtitle {
@@ -103,6 +84,7 @@ table th {
     color: #666666;
     font-size: 15pt;
     padding-bottom: 16pt;
+    
     line-height: 1.15;
     page-break-after: avoid;
     orphans: 2;
@@ -113,12 +95,14 @@ table th {
 li {
     color: #000000;
     font-size: 11pt;
+    font-family: "Arial"
 }
 
 p {
     margin: 0;
     color: #000000;
     font-size: 11pt;
+    font-family: "Arial"
 }
 
 h1 {
@@ -126,6 +110,7 @@ h1 {
     color: #000000;
     font-size: 20pt;
     padding-bottom: 6pt;
+    
     line-height: 1.15;
     page-break-after: avoid;
     orphans: 2;
@@ -138,6 +123,7 @@ h2 {
     color: #000000;
     font-size: 16pt;
     padding-bottom: 6pt;
+    
     line-height: 1.15;
     page-break-after: avoid;
     orphans: 2;
@@ -150,6 +136,7 @@ h3 {
     color: #434343;
     font-size: 14pt;
     padding-bottom: 4pt;
+    
     line-height: 1.15;
     page-break-after: avoid;
     orphans: 2;
@@ -162,6 +149,7 @@ h4 {
     color: #666666;
     font-size: 12pt;
     padding-bottom: 4pt;
+    
     line-height: 1.15;
     page-break-after: avoid;
     orphans: 2;
@@ -174,6 +162,7 @@ h5 {
     color: #666666;
     font-size: 11pt;
     padding-bottom: 4pt;
+    
     line-height: 1.15;
     page-break-after: avoid;
     orphans: 2;
@@ -186,6 +175,7 @@ h6 {
     color: #666666;
     font-size: 11pt;
     padding-bottom: 4pt;
+    
     line-height: 1.15;
     page-break-after: avoid;
     font-style: italic;
@@ -194,10 +184,27 @@ h6 {
     text-align: left
 }
 
+html {
+    font-size: clamp(12px, 3vw, 36px);
+}
+
 body {
-    max-width: 468pt !important;
-    margin: 0 auto !important;
-    padding: 24px !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 1.5rem !important;
+}
+
+p, li, .c1 {
+    font-size: 1.15rem !important;
+}
+
+.c5, .title {
+    font-size: 2.4rem !important;
+}
+
+.c0 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 
 @font-face {
