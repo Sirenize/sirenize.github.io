@@ -33,6 +33,18 @@ document.getElementById("openHUMOR").addEventListener('click', function () {
 openWindow("./programs/humor/index.html", "Humor Writing");
 });
 
+document.getElementById("openMUNDANE").addEventListener('click', function () {
+openWindow("./programs/mundane/index.html", "Mundane Writing");
+});
+
+document.getElementById("openBURSTS").addEventListener('click', function () {
+openWindow("./programs/shortbursts/index.html", "Short Bursts Writing");
+});
+
+document.getElementById("openNEON").addEventListener('click', function () {
+openWindow("./programs/neon/index.html", "Neon Gravestones - AP Lit Poem");
+});
+
 // end of programs
 
 function openWindow(src, windowName) {
