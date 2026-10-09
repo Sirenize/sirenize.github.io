@@ -37,9 +37,9 @@
     }
     });
 
-    pane.addEventListener('mousedown', () => bringToFront(pane));
+    pane.addEventListener('pointerdown', () => bringToFront(pane));
 
-    header.addEventListener('mousedown', (event) => {
+    header.addEventListener('pointerdown', (event) => {
     pane.classList.add('is-dragging');
 
     const l = pane.offsetLeft;
@@ -49,7 +49,6 @@
 
     const drag = (event) => {
         event.preventDefault();
-
 
         // this should work.. but isnt.
         if (pane.classList.contains('maximized')) {
@@ -68,17 +67,19 @@
         pane.style.top = Math.min(Math.max(t + (event.pageY - startY), 0), maxTop) + "px";
     };
 
-    const mouseup = () => {
+    const pointerup = () => {
         pane.classList.remove('is-dragging');
-        document.removeEventListener('mousemove', drag);
-        document.removeEventListener('mouseup', mouseup);
+        document.removeEventListener('pointermove', drag);
+        document.removeEventListener('pointerup', pointerup);
+        document.removeEventListener('pointercancel', pointerup);
     };
 
-    document.addEventListener('mousemove', drag);
-    document.addEventListener('mouseup', mouseup);
+    document.addEventListener('pointermove', drag);
+    document.addEventListener('pointerup', pointerup);
+    document.addEventListener('pointercancel', pointerup);
     });
 
-    corner.addEventListener('mousedown', (event) => {
+    corner.addEventListener('pointerdown', (event) => {
     const w = pane.clientWidth;
     const h = pane.clientHeight;
     const startX = event.pageX;
@@ -90,13 +91,15 @@
         pane.style.height = h + (event.pageY - startY) + 'px';
     };
 
-    const mouseup = () => {
-        document.removeEventListener('mousemove', drag);
-        document.removeEventListener('mouseup', mouseup);
+    const pointerup = () => {
+        document.removeEventListener('pointermove', drag);
+        document.removeEventListener('pointerup', pointerup);
+        document.removeEventListener('pointercancel', pointerup);
     };
 
-    document.addEventListener('mousemove', drag);
-    document.addEventListener('mouseup', mouseup);
+    document.addEventListener('pointermove', drag);
+    document.addEventListener('pointerup', pointerup);
+    document.addEventListener('pointercancel', pointerup);
     });
     }
 
