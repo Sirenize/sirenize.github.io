@@ -70,29 +70,29 @@ const corner = pane.querySelector('.corner');
 const buttons = pane.querySelector('.buttons');
 
 buttons.addEventListener('click', function (event) {
-if (event.target.id == "maximize") {
-    pane.classList.add('maximized');
-
-    pane.style.left = 0;
-    pane.style.top = 0;
-    pane.style.width = window.innerWidth + "px";
-    pane.style.height = window.innerHeight - 30 + "px";
-}
-if (event.target.id == "close") {
-    pane.remove();
-}
-
-if (event.target.id == "minimize") {
-    if (pane.classList.contains('maximized')) {
-        pane.classList.remove('maximized');
+    if (event.target.id == "maximize") {
+        pane.classList.add('maximized');
 
         pane.style.left = 0;
         pane.style.top = 0;
-
-        pane.style.width = 500 + "px";
-        pane.style.height = 300 + "px";
+        pane.style.width = window.innerWidth + "px";
+        pane.style.height = window.innerHeight - 30 + "px";
     }
-}
+    if (event.target.id == "close") {
+        pane.remove();
+    }
+
+    if (event.target.id == "minimize") {
+        if (pane.classList.contains('maximized')) {
+            pane.classList.remove('maximized');
+
+            pane.style.left = 0;
+            pane.style.top = 0;
+
+            pane.style.width = 500 + "px";
+            pane.style.height = 300 + "px";
+        }
+    }
 });
 
 pane.addEventListener('pointerdown', () => bringToFront(pane));
