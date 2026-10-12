@@ -86,6 +86,9 @@ if (event.target.id == "minimize") {
     if (pane.classList.contains('maximized')) {
         pane.classList.remove('maximized');
 
+        pane.style.left = 0;
+        pane.style.top = 0;
+
         pane.style.width = 500 + "px";
         pane.style.height = 300 + "px";
     }
