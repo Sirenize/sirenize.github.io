@@ -81,6 +81,11 @@ if (event.target.id == "maximize") {
 if (event.target.id == "close") {
     pane.remove();
 }
+
+if (event.target.id == "minimize") {
+    pane.style.width = 500 + "px";
+    pane.style.height = 300 + "px";
+}
 });
 
 pane.addEventListener('pointerdown', () => bringToFront(pane));
