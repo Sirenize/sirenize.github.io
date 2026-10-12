@@ -83,8 +83,12 @@ if (event.target.id == "close") {
 }
 
 if (event.target.id == "minimize") {
-    pane.style.width = 500 + "px";
-    pane.style.height = 300 + "px";
+    if (pane.classList.contains('maximized')) {
+        pane.classList.remove('maximized');
+
+        pane.style.width = 500 + "px";
+        pane.style.height = 300 + "px";
+    }
 }
 });
 
