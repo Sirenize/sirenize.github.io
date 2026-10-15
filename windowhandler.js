@@ -46,7 +46,7 @@ openWindow("./programs/neon/index.html", "Neon Gravestones - AP Lit Poem");
 });
 
 document.getElementById("openIA").addEventListener('click', function () {
-openWindow("./programs/audience/index.html", "Intended Audience");
+openWindow("./programs/audience/index.html", "Authentic Audience");
 });
 
 // end of programs
