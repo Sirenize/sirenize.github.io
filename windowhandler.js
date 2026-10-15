@@ -45,6 +45,10 @@ document.getElementById("openNEON").addEventListener('click', function () {
 openWindow("./programs/neon/index.html", "Neon Gravestones - AP Lit Poem");
 });
 
+document.getElementById("openIA").addEventListener('click', function () {
+openWindow("./programs/audience/index.html", "Intended Audience");
+});
+
 // end of programs
 
 function openWindow(src, windowName) {
